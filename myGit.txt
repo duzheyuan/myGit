@@ -21,7 +21,10 @@ git reset --hard commit_id 可以直接在版本之间穿梭
 
 git reflog 查看命令历史，以便确定要回到未来的哪个版本
 
+$ git checkout -- <文件名> 
 
+
+我日你妈
 
 
 
