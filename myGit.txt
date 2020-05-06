@@ -1,1 +1,30 @@
-my git is new git
+1.设置用户邮箱
+$ git config --global user.name "duzheyuan"  设置用户名
+$ git config --global user.email "2521440084@qq.com"用户邮箱
+2.初始化
+git init 命令把这个目录变成Git可以管理的仓库
+3.基本操作
+git add  把文件添加到仓库 从working directory（本地正在操作编码的文件）推到staging area（暂存区） 
+
+git commit -m"提示信息" 把文件提交到到仓库  把staging area  推到repository（git 分支）
+
+（不用git add到暂存区，那就不会加入到commit中）
+
+git status   查看仓库当前的状态是否有修改内容
+
+git diff    查看修改内容 （这两个操作是对working directory的操作）
+4.版本回退
+git log --pretty=oneline  显示从最近到最远的提交日志   加上 --pretty=oneline 只显示commit id号和提交说明
+
+git reset --hard HEAD^ 版本回退 HEAD^^ 就是回退两个版本 也可以写成HEAD~100回退100个版本
+git reset --hard commit_id 可以直接在版本之间穿梭 
+
+git reflog 查看命令历史，以便确定要回到未来的哪个版本
+
+
+
+
+
+
+
+
