@@ -4,9 +4,9 @@ $ git config --global user.email "2521440084@qq.com"用户邮箱
 2.初始化
 git init 命令把这个目录变成Git可以管理的仓库
 3.基本操作
-git add  把文件添加到仓库 从working directory（本地正在操作编码的文件）推到staging area（暂存区） 
+git add  把文件添加到仓库 从working directory（工作区）推到staging area（暂存区） 
 
-git commit -m"提示信息" 把文件提交到到仓库  把staging area  推到repository（git 分支）
+git commit -m"提示信息" 把文件提交到到仓库  把staging area  推到repository（ 版本库 git分支）
 
 （不用git add到暂存区，那就不会加入到commit中）
 
@@ -21,10 +21,45 @@ git reset --hard commit_id 可以直接在版本之间穿梭
 
 git reflog 查看命令历史，以便确定要回到未来的哪个版本
 
-$ git checkout -- <文件名> 
+5.撤销修改
+$ git checkout -- <文件名>  文件在工作区的修改全部撤销 两种结果：一种如果没有提交到暂存区就撤回到与分支一样的结果。另一种就是提交到了暂存区，就会恢复到和暂存区一样的结果
+ 总结：让这个文件回到最近一次git commit或git add时的状态
+
+$git reset HEAD <file> 把暂存区的修改撤销掉（unstage），重新放回工作区
+
+小结
+
+场景1：当你改乱了工作区某个文件的内容，想直接丢弃工作区的修改时，用命令git checkout -- file。
+
+场景2：当你不但改乱了工作区某个文件的内容，还添加到了暂存区时，想丢弃修改，分两步，第一步用命令git reset HEAD <file>，就回到了场景1，第二步按场景1操作。
+
+场景3：已经提交了不合适的修改到版本库时，想要撤销本次提交，参考版本回退一节，不过前提是没有推送到远程库。
+
+6.删除文件
+$ git rm <file> 删除工作区的一个文件
+两种结果：1.确实要删除 git rm <file>  git commit提交
+          2.误删除$ git checkout -- test.txt  从版本库恢复工作区的操作 没有提交到版本库里的不能还原
+
+7.添加到远程仓库
+$ git remote add origin <远程仓库地址（ssh）> 关联github远程仓库 origin远程库的默认名字可以改
+$ git push -u origin master  把版本库master上提交到远程服务器上 并且-u 会让本地版本库和远程库关联起来下去再提交不需要 -u
+$ git push origin master  推送最新修改
+
+8.从远程克隆到本地
+$ git clone https://github.com/duzheyuan/myGit.git   从远程库克隆到本地
+
+9.
+
+ 
 
 
-我日你妈
+
+
+
+
+
+
+
 
 
 
